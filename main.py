@@ -21,15 +21,16 @@ while fib_number < 4_000_000:
 
 print(even_sum)
 
-n,p = 600851475143,1
-while p < n:
-    n //= p
-    i, p = 2, n
-    while n % i:
-        if i > math.isqrt(n):
-            break
-        i += 1
-    else:
-        p = i
 
-print(n)
+def factors(n):
+    wheel = [1,2,2,4,2,4,2,4,6,2,6]
+    w, f, = 0, 2
+    while f*f <= n:
+        while n % f == 0:
+            n /= f
+        f, w = f + wheel[w], w+1
+        if w == 11: w = 3
+    return int(n)
+
+print(factors(600851475143))
+
