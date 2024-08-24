@@ -26,7 +26,7 @@ while p < n:
     n //= p
     i, p = 2, n
     while n % i:
-        if i > math.isqrt(n)+1:
+        if i > math.isqrt(n):
             break
         i += 1
     else:
